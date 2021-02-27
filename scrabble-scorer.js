@@ -38,10 +38,10 @@ function initialPrompt() {
 };
 
 let simpleScore = function(word) {
-  word = word.toUpperCase()
-  let letterPoints;
-  letterPoints += word.length()
-
+  let letterPoints = 0;
+  for (let i = 0; i < word.length; i++) {
+    letterPoints++
+  }
   return letterPoints;
 };
 
@@ -133,7 +133,6 @@ function transform(obj = oldPointStructure) {
   for (key in obj){
 
     for (let i = 0; i<obj[key].length;i++){
-
       let letters = obj[key][i].toLowerCase();
       let keyValue = obj[key];
       
