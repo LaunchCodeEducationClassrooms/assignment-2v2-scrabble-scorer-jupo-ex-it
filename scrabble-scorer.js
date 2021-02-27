@@ -39,8 +39,8 @@ function initialPrompt() {
 
 let simpleScore = function(word) {
   word = word.toUpperCase()
-  let letterPoints = "";
-  letterPoints += word.length
+  let letterPoints;
+  letterPoints += word.length()
 
   return letterPoints;
 };
@@ -60,13 +60,12 @@ let vowelBonusScore = function(word) {
       bonusScore += 1;
     }
 
-  } return bonusScore;
+  } return Number(bonusScore);
 };
 
 let scrabbleScore = function(word) {
 
 	word = word.toLowerCase();
-	let letterPoints = "";
   let totalPoints = 0;
   
 
@@ -75,7 +74,6 @@ let scrabbleScore = function(word) {
 	  for (const [key, value] of Object.entries(newPointStructure)) {
     
 		 if (`${key}` === (word[i])) {
-			letterPoints += `Points for '${word[i]}': ${value}\n`;  
       totalPoints += Number(`${value}`)
 		 }
  
@@ -83,8 +81,8 @@ let scrabbleScore = function(word) {
 	}
  
  // console.log(letterPoints)
- // console.log(totalPoints)
-	return totalPoints;
+  console.log(totalPoints)
+	return Number(totalPoints);
 }
 
 //let scrabbleScore;
