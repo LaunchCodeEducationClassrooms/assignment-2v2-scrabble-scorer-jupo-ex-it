@@ -37,13 +37,13 @@ function initialPrompt() {
   return word
 };
 
-// let simpleScore = function(word) {
-//   let letterPoints = 0;
-//   for (let i = 0; i < word.length; i++) {
-//     letterPoints++
-//   }
-//   return letterPoints;
-// };
+let simpleScore = function(word) {
+  let letterPoints = 0;
+  for (let i = 0; i < word.length; i++) {
+    letterPoints++
+  }
+  return letterPoints;
+};
 
 let vowelBonusScore = function(word) {
   word = word.toUpperCase()
@@ -81,7 +81,7 @@ let scrabbleScore = function(word) {
 	}
  
  // console.log(letterPoints)
-  console.log(totalPoints)
+ // console.log(totalPoints)
 	return Number(totalPoints);
 }
 
@@ -90,14 +90,7 @@ let scrabbleScore = function(word) {
 let simpleAlg = {
   name: "Simple Score",
   description: "Each letter is worth 1 point.",
-  simpleScore: function(word) {
-    
-  let letterPoints = 0;
-  for (let i = 0; i < word.length; i++) {
-    letterPoints++
-  }
-  return letterPoints;
-  }
+  scorerFunction: simpleScore
 };
 
 let vowelBonusAlg = {
@@ -164,12 +157,10 @@ function transform(obj = oldPointStructure) {
 }
 let newPointStructure = transform(oldPointStructure);
 newPointStructure[" "] = 0;
-console.log(scoringAlgorithms[0])
-console.log(scoringAlgorithms[1])
-console.log(scoringAlgorithms[2])
+
 function runProgram() {
-  //initialPrompt();
- // scorerPrompt();
+  initialPrompt();
+  scorerPrompt();
 
 }
 // Don't write any code below this line //
@@ -178,7 +169,7 @@ module.exports = {
   initialPrompt: initialPrompt,
   transform: transform,
   oldPointStructure: oldPointStructure,
-  simpleScore: simpleAlg.simpleScore,
+  simpleScore: simpleScore,
   vowelBonusScore: vowelBonusScore,
   scrabbleScore: scrabbleScore,
   scoringAlgorithms: scoringAlgorithms,
