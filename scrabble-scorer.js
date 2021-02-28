@@ -124,7 +124,7 @@ function scorerPrompt() {
 
   let selectedScoringAlgorithm = getValidInput("Enter 0, 1, or 2: ");
   let x = selectedScoringAlgorithm
-  console.log("Score for " + word + ": " + scoringAlgorithms[x].scorerFunction(word))
+  console.log("Score for " + word + ": " + scoringAlgorithms[x].scoringFunction(word))
 }
 
 function transform(obj = oldPointStructure) {
